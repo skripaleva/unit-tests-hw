@@ -13,6 +13,8 @@
  * @param  {string} input
  * @return {string}
  */
-export default function rle(input) {
+function rle(input) {
     return input.match(/(.)\1*/g).map(item => (item.length !== 1 ? item[0] + item.length : item)).join('');
 }
+
+module.exports = { rle };

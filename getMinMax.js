@@ -16,7 +16,7 @@
  * @param  {string} input входная строка
  * @return {{min: number, max: number}} объект с минимумом и максимумом
  */
-export default function getMinMax(input) {
+function getMinMax(input) {
     const parsed = input.split(/[,\s]/);
 
     const numbers = parsed
@@ -25,3 +25,5 @@ export default function getMinMax(input) {
 
     return { min: Math.min(...numbers), max: Math.max(...numbers) };
 }
+
+module.exports = { getMinMax };

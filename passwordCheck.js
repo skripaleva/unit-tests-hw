@@ -19,7 +19,7 @@
  * @param  {string} password пароль
  * @return {boolean}
  */
-export default function passwordCheck(password) {
+function passwordCheck(password) {
     const numRegExp = /[0-9]/g.test(password);
     const letUpRegExp = /[A-Z]/g.test(password);
     const letLowRegExp = /[a-z]/g.test(password);
@@ -27,3 +27,5 @@ export default function passwordCheck(password) {
 
     return password.length >= 10 && numRegExp && letUpRegExp && letLowRegExp && symbRegExp;
 }
+
+module.exports = { passwordCheck };

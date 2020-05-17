@@ -11,7 +11,7 @@
  * @param {*} x число или undefined
  * @returns а это уже сами решите
  */
-export default function sum(x) {
+function sum(x) {
     if (x === undefined) {
         return 0;
     }
@@ -31,3 +31,5 @@ export default function sum(x) {
     return plus;
 
 }
+
+module.exports = { sum };

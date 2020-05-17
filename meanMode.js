@@ -20,7 +20,7 @@
  * @param  {number[]} numbers массив целых положительных чисел.
  * @return {boolean}
  */
-export function meanMode(numbers) {
+function meanMode(numbers) {
     if (numbers.length === 0) {
         return false;
     }
@@ -55,3 +55,5 @@ export function meanMode(numbers) {
     return max.key === mean;
 
 }
+
+module.exports = { meanMode };
