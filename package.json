@@ -1,25 +1,49 @@
 {
-  "name": "unit-tests-hw",
-  "version": "1.0.0",
-  "description": "",
-  "main": "capitalize.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WebHeroSchool/unit-tests-hw.git"
-  },
-  "author": "ТВОЕ ИМЯ <ТВОЯ ПОЧТА>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/WebHeroSchool/unit-tests-hw/issues"
-  },
-  "homepage": "https://github.com/WebHeroSchool/unit-tests-hw#readme",
-  "devDependencies": {
-    "jest": "^26.0.1"
-  },
+  "name": "homework",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "axios": "^0.19.2"
+    "classnames": "^2.2.6",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-maskedinput": "^4.0.1",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/**.js"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --use-tabs --trailing-comma=es5 --print-width=80 --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "cross-env CI=true npm run test"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4"
   }
 }

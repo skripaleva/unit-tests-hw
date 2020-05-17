@@ -1,0 +1,69 @@
+image: mhart/alpine-node:10
+
+stages:
+  - lint
+  - test
+  - build
+  - review
+  - deploy
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+    
+variables:
+  REPO_NAME: react-fintech-app
+
+lint test:
+  stage: lint
+  script:
+    - npm install --progress=false
+    - npm run lint
+
+unit test:
+  stage: test
+  script:
+    - npm install --progress=false
+    - npm run test
+
+build site:
+  stage: build
+  script:
+    - npm install --progress=false
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - build
+
+review:
+  stage: review
+  script:
+    - npm install -g --unsafe-perm --silent now
+    - URL=$(now --public -t ${NOW_TOKEN} ./build -n ${REPO_NAME}-${CI_BUILD_REF_SLUG}-${GITLAB_USER_ID})
+    - NOW_URL=$(echo ${URL} | sed s/'http:\/\/'/''/g | sed s/'https:\/\/'//g)
+    - now -t ${NOW_TOKEN} alias set ${NOW_URL} ${REPO_NAME}-${CI_BUILD_REF_SLUG}-${GITLAB_USER_ID}.now.sh
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    url: https://$REPO_NAME-$CI_BUILD_REF_SLUG-$GITLAB_USER_ID.now.sh
+    on_stop: stop-review
+  only:
+    - branches
+  except:
+    - master
+    
+stop-review:
+  stage: review
+  script:
+    - npm install -g --unsafe-perm --silent now
+    - now rm -t ${NOW_TOKEN} -y ${CI_BUILD_REF_SLUG}
+  when: manual
+  environment:
+    name: review/$CI_BUILD_REF_NAME
+    action: stop
+  only:
+    - branches
+  except:
+    - master
