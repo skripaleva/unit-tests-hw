@@ -5,7 +5,7 @@
  * @param  {Promise[]} promises массив с исходными промисами
  * @return {Promise}
  */
-export const promiseAll = promises => new Promise((resolve, reject) => {
+const promiseAll = promises => new Promise((resolve, reject) => {
     if (!promises.length) {
         reject('empty arr');
     }
@@ -22,3 +22,5 @@ export const promiseAll = promises => new Promise((resolve, reject) => {
         return obj;
     }, { result: [], count: promises.length });
 });
+
+module.exports = { promiseAll };

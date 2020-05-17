@@ -12,7 +12,7 @@
  * @param  {number[]} second исходные массивы
  * @return {number[]} массив значений, отсортированный по возрастанию
  */
-export function getIntersection(first, second) {
+function getIntersection(first, second) {
     const arr = [];
     const scnd = [...second];
 
@@ -38,3 +38,5 @@ export function getIntersection(first, second) {
 
     return arr.sort(sortRules);
 }
+
+module.exports = { getIntersection };

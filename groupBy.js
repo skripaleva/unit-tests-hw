@@ -10,7 +10,7 @@
  *
  * groupBy(x => x, { a: 1, b: 1, c: 3});// => { '1': [1, 1], '3': [3] }
  */
-export const groupBy = (fn, obj) => {
+const groupBy = (fn, obj) => {
     const result = {};
     const keys = objectKeys(obj);
 
@@ -27,3 +27,5 @@ export const groupBy = (fn, obj) => {
 
     return result;
 };
+
+module.exports = { groupBy };
