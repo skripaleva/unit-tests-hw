@@ -7,6 +7,10 @@ import { compareAccounts } from '../../utils/accounts';
 import styles from './Board.module.css';
 
 export default ({ accounts }) => {
+	if (!accounts) {
+		return null;
+	}
+
 	const sortedAccounts = accounts.slice().sort(compareAccounts);
 
 	return (
