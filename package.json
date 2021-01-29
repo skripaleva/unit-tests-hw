@@ -1,21 +1,21 @@
 {
-  "name": "unit-tests-hw",
+  "name": "unit_whs",
   "version": "1.0.0",
   "description": "",
-  "main": "capitalize.js",
+  "main": "sum.js",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WebHeroSchool/unit-tests-hw.git"
+    "url": "git+https://github.com/skripaleva/unit_whs.git"
   },
-  "author": "ТВОЕ ИМЯ <ТВОЯ ПОЧТА>",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WebHeroSchool/unit-tests-hw/issues"
+    "url": "https://github.com/skripaleva/unit_whs/issues"
   },
-  "homepage": "https://github.com/WebHeroSchool/unit-tests-hw#readme",
+  "homepage": "https://github.com/skripaleva/unit_whs#readme",
   "devDependencies": {
     "jest": "^26.0.1"
   }
